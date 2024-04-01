@@ -1,6 +1,6 @@
-#! usr/bin/
+#! /usr/bin/env node
 let balance = 10000;
-let pin = 1111;
+let pin = Math.floor(Math.random() * 1000 + 1000);
 let card = 'card';
 import inquirer from "inquirer";
 let inserCard = await inquirer.prompt([
@@ -10,7 +10,9 @@ let inserCard = await inquirer.prompt([
         message: 'Wellcome ! Please enter your Card  OR write "card" to begin'
     }
 ]);
-if (inserCard.enterCard === card) {
+if (inserCard.enterCard === card)
+    console.log('your card pin is', pin);
+{
     let pinAnswer = await inquirer.prompt([
         {
             name: 'pinNo',
@@ -28,6 +30,7 @@ if (inserCard.enterCard === card) {
                 choices: ['Withdraw', 'Deposit money', 'Check Balance']
             }
         ]);
+        console.log(pin);
         if (selectTransaction.transaction === 'Withdraw') {
             let selectOption = await inquirer.prompt([
                 {
@@ -97,7 +100,7 @@ if (inserCard.enterCard === card) {
             let cash = depositCash.deposit;
             let currentBalance2 = cash + balance;
             if (balance + depositCash.deposit) {
-                console.log('congratulations your', cash, 'successfully deposited, your current balance is', currentBalance2);
+                console.log('congratulations your', cash, 'successfully deposited, your current balance is ', currentBalance2);
             }
         }
         else {

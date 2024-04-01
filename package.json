@@ -1,6 +1,6 @@
 {
   "name": "mr11-atm_machine",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "I've created CLI based ATM machine using Inquirer.js.",
   "main": "index.js",
   "type": "module",
